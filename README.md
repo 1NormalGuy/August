@@ -136,51 +136,6 @@ august/
 └── temp/                   # 临时文件目录
 ```
 
-## 📡 API 接口
-
-### 页面路由
-
-| 路由 | 方法 | 描述 |
-|------|------|------|
-| `/` | GET | 首页 - 展示热搜数据 |
-| `/?date=YYYY-MM-DD` | GET | 指定日期的热搜数据 |
-
-### 数据接口
-
-| 路由 | 方法 | 描述 |
-|------|------|------|
-| `/api/news/{date}` | GET | 获取指定日期的新闻数据 |
-| `/api/summary/{date}` | GET | 获取指定日期的摘要数据 |
-| `/api/summary/generate` | POST | 按需生成 AI 摘要 |
-| `/api/analytics/analyze` | POST | 综合分析新闻数据 |
-
-### 生成摘要示例
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/summary/generate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "news_list": [
-      {"title": "新闻标题", "url": "https://example.com/news"}
-    ],
-    "page": 1,
-    "page_size": 10
-  }'
-```
-
-### 分析新闻示例
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/analytics/analyze \
-  -H "Content-Type: application/json" \
-  -d '{
-    "news_list": [
-      {"title": "新闻标题1", "source": "财联社"},
-      {"title": "新闻标题2", "source": "华尔街见闻"}
-    ]
-  }'
-```
-
 ## 🔌 支持的数据源
 
 | 数据源 | 标识 | 类型 | 描述 |
